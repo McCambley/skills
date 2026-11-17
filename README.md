@@ -31,3 +31,7 @@ Some skills use others. When a skill says it needs another one, install both.
 
 The `publish-skills` skill copies my local skills here, checks them for private details, and pushes.
 Edit skills locally, not in this repo: the next publish overwrites the copies here.
+
+## License
+
+[MIT](LICENSE)
