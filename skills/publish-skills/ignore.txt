@@ -1,0 +1,1 @@
+# Skill folder names never to publish, one per line.

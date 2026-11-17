@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vector design system</title>
+<!-- @fonts -->
+<style>
+/* @vector */
+
+/* Gallery layout only. Tokens only, no raw colours. */
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-base)}
+.g-wrap{max-width:1120px;margin:0 auto;padding:0 var(--space-6)}
+.g-hero{padding-top:var(--space-24);padding-bottom:var(--space-12);border-bottom:1px solid var(--border-subtle)}
+.g-hero p{max-width:560px;color:var(--text-secondary);margin:var(--space-4) 0 var(--space-8)}
+.g-hero h1{margin:0}
+.g-eyebrow{color:var(--text-tertiary);margin-bottom:var(--space-4)}
+.g-actions{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center}
+.g-theme{position:absolute;top:var(--space-4);right:var(--space-4);display:flex;gap:var(--space-1)}
+.g-theme .vx-btn[aria-pressed="true"]{background:var(--bg-hover);color:var(--text-primary)}
+section.g-sec{padding:var(--space-12) 0;border-bottom:1px solid var(--border-subtle)}
+section.g-sec>h2{margin:0 0 var(--space-2);display:flex;gap:var(--space-2);align-items:center}
+section.g-sec>p{margin:0 0 var(--space-8);color:var(--text-secondary);max-width:640px}
+h3.g-sub{margin:var(--space-8) 0 var(--space-4);color:var(--text-tertiary)}
+.g-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4)}
+.g-row{display:flex;flex-wrap:wrap;gap:var(--space-2);align-items:center}
+.g-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--space-2)}
+.g-icon{display:flex;gap:var(--space-3);align-items:center;padding:var(--space-3);border-radius:var(--radius-sm);background:var(--bg-raised);border:1px solid var(--border-subtle)}
+.g-icon code{color:var(--text-secondary)}
+.g-type{padding:var(--space-4) 0;border-top:1px solid var(--border-subtle);overflow-wrap:anywhere}
+.g-type code{color:var(--text-secondary);margin-right:var(--space-3)}
+.g-meta{color:var(--text-tertiary)}
+.g-type>div{margin-top:var(--space-2)}
+.g-sws{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4) var(--space-6)}
+.g-sw{display:flex;gap:var(--space-3);align-items:flex-start}
+.g-sw code{color:var(--text-primary)}
+.g-sw p{margin:2px 0 0;color:var(--text-secondary)}
+.g-sw .g-val{color:var(--text-tertiary)}
+.g-chip{flex:none;width:40px;height:40px;border-radius:var(--radius-md);border:1px solid var(--border-strong)}
+footer{padding:var(--space-8) 0 var(--space-12);color:var(--text-tertiary)}
+code{white-space:nowrap}
+@media (max-width:600px){.g-wrap{padding:0 var(--space-4)} .g-hero{padding-top:var(--space-12)} .g-hero h1{font-size:var(--t-title-1-size);line-height:var(--t-title-1-lh)}}
+</style>
+</head>
+<body class="vx">
+<header class="vx-glow" style="position:relative">
+  <div class="g-theme" role="group" aria-label="Theme">
+    <button class="vx-btn vx-btn--ghost" data-set="">Auto</button>
+    <button class="vx-btn vx-btn--ghost" data-set="light">Light</button>
+    <button class="vx-btn vx-btn--ghost" data-set="dark">Dark</button>
+  </div>
+  <div class="g-wrap g-hero">
+    <div class="vx-t-micro g-eyebrow">Vector · version {{VERSION}}</div>
+    <h1 class="vx-t-display">Plan the work. Ship it.</h1>
+    <p class="vx-t-body-lg">A quiet, precise interface system: near-black canvases, hairline borders lit from the top, and colour only where it means something.</p>
+    <div class="g-actions">
+      <button class="vx-btn vx-btn--primary vx-btn--lg">Get started</button>
+      <button class="vx-btn vx-btn--secondary vx-btn--lg">Read the brand book <span class="vx-kbd">⌘K</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="g-wrap">
+  <section class="g-sec">
+    <h2 class="vx-t-title-2"><span class="vx-ico vx-ico--lg vx-ico--projects" aria-hidden="true"></span>Cards</h2>
+    <p class="vx-t-body"><code class="vx-t-mono">vx-card</code> for every card and panel. <code class="vx-t-mono">vx-card--accent</code> on one featured card per page.</p>
+    <div class="g-cards">
+      <div class="vx-card"><span class="vx-icontile vx-icontile--amber"><span class="vx-ico vx-ico--cycles" aria-hidden="true"></span></span><h3>Cycles</h3><p>Two-week sprints that roll over unfinished work on their own.</p></div>
+      <div class="vx-card vx-card--accent"><span class="vx-icontile vx-icontile--violet"><span class="vx-ico vx-ico--issues" aria-hidden="true"></span></span><h3>Issues</h3><p>Fast, keyboard-first tracking with sensible defaults.</p></div>
+      <div class="vx-card"><span class="vx-icontile vx-icontile--green"><span class="vx-ico vx-ico--projects" aria-hidden="true"></span></span><h3>Projects</h3><p>Group issues toward a goal and share progress updates.</p></div>
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <h2 class="vx-t-title-2"><span class="vx-ico vx-ico--lg vx-ico--triage" aria-hidden="true"></span>Buttons, badges and icon tiles</h2>
+    <p class="vx-t-body">One primary button per view: on this page it's "Get started" at the top. Badges carry colour only in the dot, so the word carries the meaning.</p>
+    <h3 class="vx-t-label g-sub">Buttons</h3>
+    <div class="g-row">
+      <button class="vx-btn vx-btn--secondary"><span class="vx-ico vx-ico--inbox" aria-hidden="true"></span>Open inbox</button>
+      <button class="vx-btn vx-btn--secondary">Search <span class="vx-kbd">⌘K</span></button>
+      <button class="vx-btn vx-btn--ghost">Cancel</button>
+      <button class="vx-btn vx-btn--secondary vx-btn--lg">Large secondary</button>
+    </div>
+    <h3 class="vx-t-label g-sub">Badges</h3>
+    <div class="g-row">
+      <span class="vx-badge"><i></i>Backlog</span>
+      <span class="vx-badge vx-badge--blue"><i></i>Todo</span>
+      <span class="vx-badge vx-badge--amber"><i></i>In progress</span>
+      <span class="vx-badge vx-badge--violet"><i></i>In review</span>
+      <span class="vx-badge vx-badge--green"><i></i>Done</span>
+      <span class="vx-badge vx-badge--red"><i></i>Urgent</span>
+    </div>
+    <h3 class="vx-t-label g-sub">Icon tiles</h3>
+    <div class="g-row">
+      <span class="vx-icontile vx-icontile--blue"><span class="vx-ico vx-ico--inbox" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--violet"><span class="vx-ico vx-ico--issues" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--amber"><span class="vx-ico vx-ico--cycles" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--green"><span class="vx-ico vx-ico--projects" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--teal"><span class="vx-ico vx-ico--roadmap" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--pink"><span class="vx-ico vx-ico--insights" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--orange"><span class="vx-ico vx-ico--triage" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--red"><span class="vx-ico vx-ico--integrations" aria-hidden="true"></span></span>
+      <span class="vx-icontile vx-icontile--indigo"><span class="vx-ico vx-ico--teams" aria-hidden="true"></span></span>
+      <span class="vx-icontile"><span class="vx-ico vx-ico--docs" aria-hidden="true"></span></span>
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <h2 class="vx-t-title-2"><span class="vx-ico vx-ico--lg vx-ico--inbox" aria-hidden="true"></span>Icons</h2>
+    <p class="vx-t-body"><code class="vx-t-mono">vx-ico vx-ico--&lt;name&gt;</code> at 16px in dense UI; add <code class="vx-t-mono">vx-ico--lg</code> for 20px. One hue per object type.</p>
+    <div class="g-icons">
+<!-- @icons -->
+    </div>
+  </section>
+
+  <section class="g-sec">
+    <h2 class="vx-t-title-2"><span class="vx-ico vx-ico--lg vx-ico--docs" aria-hidden="true"></span>Type</h2>
+    <p class="vx-t-body">Inter for everything, JetBrains Mono for keys and code. Apply a style with its class, or its <code class="vx-t-mono">--t-&lt;name&gt;-*</code> variables.</p>
+<!-- @type -->
+  </section>
+
+  <section class="g-sec">
+    <h2 class="vx-t-title-2"><span class="vx-ico vx-ico--lg vx-ico--insights" aria-hidden="true"></span>Colour tokens</h2>
+    <p class="vx-t-body">Values are listed dark · light. Switch the theme at the top to see each one change.</p>
+    <div class="g-sws">
+<!-- @swatches -->
+    </div>
+  </section>
+  <footer class="vx-t-micro">Generated by scripts/build.py from tokens.json. An original system: no Linear logos or artwork.</footer>
+</main>
+<script>
+(function(){
+  var root=document.documentElement, btns=document.querySelectorAll('[data-set]');
+  function set(t){
+    if(t) root.setAttribute('data-theme',t); else root.removeAttribute('data-theme');
+    btns.forEach(function(b){b.setAttribute('aria-pressed', String(b.dataset.set===t));});
+    try{ t ? localStorage.setItem('vx-theme',t) : localStorage.removeItem('vx-theme'); }catch(e){}
+  }
+  var saved=''; try{ saved=localStorage.getItem('vx-theme')||''; }catch(e){}
+  if(!root.hasAttribute('data-theme')) set(saved); else set(root.getAttribute('data-theme'));
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set);});});
+})();
+</script>
+</body>
+</html>
